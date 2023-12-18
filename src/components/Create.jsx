@@ -49,7 +49,7 @@ const Create = (props) => {
                 type="password"
                 placeholder="Password"
             />
-            <button className="mb-4 w-1/4 p-2 text-1xl  text-white  backcolor">
+            <button className="mb-4 w-1/4 p-2 text-1xl  text-white bg-zinc-500">
                 Submit
             </button>
             <hr />

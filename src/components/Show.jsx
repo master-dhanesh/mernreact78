@@ -1,6 +1,5 @@
 import React from "react";
 import { toast } from "react-toastify";
-import "../App.css";
 
 const Show = (props) => {
     const { users, setusers } = props;
