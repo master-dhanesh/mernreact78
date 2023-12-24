@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../utils/Context";
 
-const Show = (props) => {
-    const { users, setusers } = props;
+const Show = () => {
+    const [users, setusers] = useContext(UserContext);
     const DeleteHandler = (index) => {
         const copyusers = [...users];
         copyusers.splice(index, 1);
@@ -39,7 +40,13 @@ const Show = (props) => {
                                       </Link>
 
                                       <p>
-                                          <span className="mr-6">✏️</span>
+                                          <Link
+                                              to={`/show/edit/${user.username}`}
+                                              className="mr-6"
+                                          >
+                                              ✏️
+                                          </Link>
+
                                           <span
                                               onClick={() =>
                                                   DeleteHandler(index)
