@@ -17,6 +17,7 @@ const Edit = () => {
         // copyuser.city = "asdjkas"
         // const cityname = "bh"
         // copyuser["cityname"] = "asdjkas"
+        console.log(user);
         const copyuser = { ...user };
         copyuser[e.target.name] = e.target.value;
         setuser(copyuser);

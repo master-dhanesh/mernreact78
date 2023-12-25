@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Details from "./components/Details.jsx";
 import { ProductContext } from "./utils/Context.jsx";
 import Edit from "./components/Edit.jsx";
+import Products from "./components/Products.jsx";
 
 const App = () => {
     const x = useContext(ProductContext);
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/show/details/:title" element={<Details />} />
                 </Route>
                 <Route path="/show/edit/:title" element={<Edit />} />
+                <Route path="/product" element={<Products />} />
             </Routes>
         </>
     );
