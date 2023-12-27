@@ -2,14 +2,16 @@ import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../utils/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteuser } from "../store/reducers/UserReducer";
 
 const Show = () => {
-    const [users, setusers] = useContext(UserContext);
+    const { users } = useSelector((state) => state.UserReducer);
+    const [u, setusers] = useContext(UserContext);
+    const dispatch = useDispatch();
+
     const DeleteHandler = (index) => {
-        const copyusers = [...users];
-        copyusers.splice(index, 1);
-        setusers(copyusers);
-        localStorage.setItem("users", JSON.stringify(copyusers));
+        dispatch(deleteuser(index));
         toast.warn("User deleted successfully!");
     };
 

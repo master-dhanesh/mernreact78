@@ -10,8 +10,6 @@ import Edit from "./components/Edit.jsx";
 import Products from "./components/Products.jsx";
 
 const App = () => {
-    const x = useContext(ProductContext);
-    console.log(x);
     return (
         <>
             <Nav />

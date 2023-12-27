@@ -1,33 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { ProductContext } from "../utils/Context";
 const Products = () => {
-    const [products, setproducts] = useState(null);
-
-    const getproducts = async () => {
-        try {
-            const { data } = await axios.get(
-                "https://fakestoreapi.com/products"
-            );
-            setproducts(data);
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        console.log("Products Fetched!");
-        if (!products) getproducts();
-
-        return () => {
-            alert("Do you want to leave this page ?");
-            setproducts(null);
-        };
-    }, []);
+    const [products, setproducts] = useContext(ProductContext);
 
     return (
         <div className="w-[80%] m-auto mt-5">
-            <h1>Products</h1>
+            <h1 className="text-3xl">Products</h1>
             <ul className="mt-5">
                 {products ? (
                     products.map((p) => (

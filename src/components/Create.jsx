@@ -2,13 +2,14 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../utils/Context";
+import { createuser } from "../store/reducers/UserReducer";
+import { useDispatch } from "react-redux";
 
 const Create = () => {
     const navigate = useNavigate();
-    const [users, setusers] = useContext(UserContext);
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
-
+    const dispatch = useDispatch();
     const SubmitHandler = (e) => {
         e.preventDefault();
 
@@ -19,17 +20,7 @@ const Create = () => {
             return;
         }
 
-        const copyusers = [...users];
-        copyusers.push(user);
-        setusers(copyusers);
-
-        // setusers([...users, user])
-
-        localStorage.setItem("users", JSON.stringify(copyusers));
-        toast.success("User successfullt created!");
-
-        setusername("");
-        setpassword("");
+        dispatch(createuser(user));
         navigate("/show");
     };
 
