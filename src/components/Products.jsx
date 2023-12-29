@@ -1,8 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { ProductContext } from "../utils/Context";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { asyncgetproducts } from "../store/actions/ProductActions";
 const Products = () => {
-    const [products, setproducts] = useContext(ProductContext);
+    const { products } = useSelector((state) => state.ProductReducer);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(asyncgetproducts());
+    }, []);
 
     return (
         <div className="w-[80%] m-auto mt-5">

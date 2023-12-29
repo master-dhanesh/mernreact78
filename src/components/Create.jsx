@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { UserContext } from "../utils/Context";
 import { createuser } from "../store/reducers/UserReducer";
 import { useDispatch } from "react-redux";
 

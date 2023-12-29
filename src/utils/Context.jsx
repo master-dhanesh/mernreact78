@@ -17,14 +17,14 @@ const Context = (props) => {
                 "https://fakestoreapi.com/products"
             );
             setproducts(data);
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        console.log("Products Fetched!");
+        // console.log("Products Fetched!");
         if (!products) getproducts();
     }, []);
 
